@@ -21,19 +21,22 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.lojadegames.model.Produto;
+import com.lojadegames.repository.CategoriaRepository;
 import com.lojadegames.repository.ProdutoRepository;
 
 @RestController
 @RequestMapping("/produtos")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProdutoController {
-	
+
 	@Autowired
 	private ProdutoRepository produtoRepository;
-	
+
+	@Autowired
+	private CategoriaRepository categoriaRepository;
+
 	@GetMapping
 	public ResponseEntity<List<Produto>> getAll() {
-		Object produtoRepository;
 		return ResponseEntity.ok(produtoRepository.findAll());
 	}
 
